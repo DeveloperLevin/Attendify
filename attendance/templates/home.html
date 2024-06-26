@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 choice">
+            <img class="logo" src="https://cdn.dribbble.com/userupload/3668818/file/original-82d33fec976d80ee37bdc10eb32c87c2.png?resize=752x" alt="attendify">
+        </div>
+        <div class="col-md-6 main">
+            <div class="centered-content">
+                <a  class="btn btn-outline-primary mb-4" href="{{ url_for('admins.admin_home') }}">Admin</a>
+                <a  class="btn btn-outline-primary" href="{{ url_for('main.video') }}">Attendify</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

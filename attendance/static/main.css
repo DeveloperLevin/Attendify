@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.2rem; /* Adjust font size as needed */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Increased letter spacing */
+    font-weight: bold; /* Bold text */
+}
+
+.row {
+    height: 100vh;
+}
+
+.main {
+    background-color: #E6E5E8;
+
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.btn {
+    width: 25%;
+}

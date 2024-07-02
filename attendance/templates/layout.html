@@ -10,8 +10,14 @@
 <body>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="url_for('main.home')">
+
+
+            <!-- fix this shit-->>
             <img src="https://cdn.dribbble.com/userupload/3668818/file/original-82d33fec976d80ee37bdc10eb32c87c2.png?resize=752x" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+
+
+
             Attendify
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,16 +26,27 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Add Student</a>
-              <a class="nav-link" href="#">Delete Student</a>
-              <a class="nav-link" href="#">Update Student</a>
+              {% if current_user.is_authenticated %}
+                <a class="nav-link" href="#">Add Student</a>
+                <a class="nav-link" href="#">Delete Student</a>
+                <a class="nav-link" href="#">Update Student</a>
+              {% endif %}
             </div>
           </div>
         </div>
       </nav>
 
-
-    {% block content %}{% endblock %}
+      <main role="main">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+      </main>
 
 
 
